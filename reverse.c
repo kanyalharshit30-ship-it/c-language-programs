@@ -1,23 +1,17 @@
-//Reverse a String Without Using strrev()
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char str[100], temp;
-    int i, length;
+    int num, reverse = 0, remainder;
 
-    printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    length = strlen(str) - 1;  // remove newline
-
-    for (i = 0; i < length / 2; i++) {
-        temp = str[i];
-        str[i] = str[length - i - 1];
-        str[length - i - 1] = temp;
+    while(num != 0) {
+        remainder = num % 10;
+        reverse = reverse * 10 + remainder;
+        num = num / 10;
     }
 
-    printf("Reversed string: %s", str);
-
+    printf("Reversed number = %d", reverse);
     return 0;
 }
